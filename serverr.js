@@ -10,7 +10,8 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://unprolific-jeraldine-overcasually.ngrok-free.dev"
+    "https://unprolific-jeraldine-overcasually.ngrok-free.dev",
+    "https://stockibags-production.up.railway.app"
   ],
   methods: ["GET","POST","PUT","DELETE","OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]

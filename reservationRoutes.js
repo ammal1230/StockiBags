@@ -27,9 +27,10 @@ const formatHeure = (date, offsetHours = 1) => {
 };
 
 const cron = require('node-cron');
+const mongoose = require('./config/connect.js');
 
-// Toutes les minutes
-cron.schedule('* * * * *', async () => {
+mongoose.connection.once('open', () => {
+  cron.schedule('* * * * *', async () => {
   try {
     const now = new Date();
 
@@ -45,6 +46,7 @@ cron.schedule('* * * * *', async () => {
   } catch (err) {
     console.error('Erreur cron:', err);
   }
+});
 });
 
 // ─────────────────────────────────────────────
